@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 # coding=utf-8
 
-
 def insertionSort(A):
     for i in range(1, len(A)):
         k = A[i]
@@ -11,8 +10,8 @@ def insertionSort(A):
             j -= 1
         A[j + 1] = k
 
-    return A
-
 A = [9, 8, 7, 6, 5, 4, 3, 2, 1, 0, 100, -100, 100, -100, -1000]
 
-print(insertionSort(A))
+insertionSort(A)
+
+print(A)

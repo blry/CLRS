@@ -34,6 +34,8 @@ class MergeSorter:
                 self.D[i] = self.D[mid]
                 mid += 1
 
-A = [9, 8, 7, 6, 5, 4, 3, 2, 1, 0, 100, -100, 100, -100, -1000] * 2
+A = [9, 8, 7, 6, 5, 4, 3, 2, 1, 0, 100, -100, 100, -100, -1000]
 
-print(MergeSorter(A).sort())
+MergeSorter(A).sort()
+
+print(A)
