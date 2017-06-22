@@ -8,7 +8,7 @@ def sum(A, B):
     for i in range(len(A) - 1, -1, -1):
         j = A[i] + B[i] + j
         C.insert(0, j % 2)
-        j = j / 2
+        j = j // 2
 
     C.insert(0, j % 2)
     
@@ -16,5 +16,7 @@ def sum(A, B):
 
 A = [1, 1, 1, 1, 1, 0, 1, 0, 0, 1, 1, 1, 1]
 B = [1, 0, 0, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0]
-
-print(sum(A, B))
+C = sum(A, B)
+print('    ', A)
+print('+   ', B)
+print('=', C)
