@@ -55,6 +55,7 @@ def sumCanBe(S, x):
     for i in range(0, len(S) - 1):
         t = S.pop(i)
         if binSearch(S, x - t) is not None:
+            S.insert(i, t)
             return True
         S.insert(i, t)
 
