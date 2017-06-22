@@ -41,5 +41,6 @@ def findMaxCrossMidSubArray(A, low, mid, high):
 
 
 A = [13, -3, -25, 20, -3, -16, -23, 18, 20, -7, 12, -5, -22, 15, -4, 7]
+
 b, i, j = findMaxSubArray(A, 0, len(A) - 1)
 print(b, [i, j], A[i:j + 1])
