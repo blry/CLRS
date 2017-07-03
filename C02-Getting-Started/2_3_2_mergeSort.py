@@ -3,7 +3,7 @@
 
 import math
 
-class InversionsCounter:
+class MergeSorter:
     def __init__(self, A):
         self.D = A
         self.B = [None] * len(A)
@@ -11,25 +11,21 @@ class InversionsCounter:
     def getData(self):
         return self.D
 
-    def count(self):
-        return self.__sort(0, len(self.D) - 1)
+    def sort(self):
+        self.__sort(0, len(self.D) - 1)
+        return self.D
 
     def __sort(self, low, high):
         if(low < high):
             mid = (low + high) // 2
-            inversions = self.__sort(low, mid)
-            inversions += self.__sort(mid + 1, high)
-            inversions += self.__merge(low, mid, high)
-            return inversions
-        return 0
+            self.__sort(low, mid)
+            self.__sort(mid + 1, high)
+            self.__merge(low, mid, high)
 
     def __merge(self, low, mid, high):
         self.B[low : mid + 1] = self.D[low : mid + 1]
         self.B[mid + 1] = math.inf
-
         mid += 1
-        inversions = 0
-        
         for i in range(low, high + 1):
             if(mid > high or self.B[low] <= self.D[mid]):
                 self.D[i] = self.B[low]
@@ -37,7 +33,11 @@ class InversionsCounter:
             elif(self.B[low] > self.D[mid]):
                 self.D[i] = self.D[mid]
                 mid += 1
-                inversions += mid - i - 1
-        return inversions
 
-print(InversionsCounter([2, 3, 8, 6, 1]).count()) # 5
+
+if __name__ == '__main__':
+    A = [9, 8, 7, 6, 5, 4, 3, 2, 1, 0, 100, -100, 100, -100, -1000]
+
+    MergeSorter(A).sort()
+
+    print(A)

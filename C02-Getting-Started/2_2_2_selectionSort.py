@@ -9,8 +9,10 @@ def selectionSort(A):
                 m = j
         A[i], A[m] = A[m], A[i]
 
-A = [9, 8, 7, 6, 5, 4, 3, 2, 1, 0, 100, -100, 100, -100, -1000]
 
-selectionSort(A)
+if __name__ == '__main__':
+    A = [9, 8, 7, 6, 5, 4, 3, 2, 1, 0, 100, -100, 100, -100, -1000]
 
-print(A)
+    selectionSort(A)
+
+    print(A)

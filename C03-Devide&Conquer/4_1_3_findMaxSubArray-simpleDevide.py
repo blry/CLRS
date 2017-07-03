@@ -1,22 +1,9 @@
 #!/usr/bin/env python
 # coding=utf-8
 
-def findMaxSubArrayLinear(A, low, high):
-    maxSum = maxLow = maxHigh = 0
-    for l in range(low, high + 1):
-        current = 0
-        for r in range(l, high + 1):
-            current += A[r]
-            if current > maxSum:
-                maxSum = current
-                maxLow = l
-                maxHigh = r
-
-    return maxSum, maxLow, maxHigh
-
-def findMaxSubArray(A, low, high):
-    if (high - low) < 13:
-        return findMaxSubArrayLinear(A, low, high)
+def findMaxSubArray(A, low, high):  # 30nlog20n;
+    if low >= high:
+        return A[high], low, high
     else:
         mid = (high + low) // 2
         
@@ -53,7 +40,8 @@ def findMaxCrossMidSubArray(A, low, mid, high):
     return maxRightSum + maxLeftSum, leftLow, rightHigh
 
 
-A = [13, -3, -25, 20, -3, -16, -23, 18, 20, -7, 12, -5, -22, 15, -4, 7]
+if __name__ == '__main__':
+    A = [13, -3, -25, 20, -3, -16, -23, 18, 20, -7, 12, -5, -22, 15, -4, 7]
 
-b, i, j = findMaxSubArray(A, 0, len(A) - 1)
-print(b, [i, j], A[i:j + 1])
+    b, i, j = findMaxSubArray(A, 0, len(A) - 1)
+    print(b, [i, j], A[i:j + 1])

@@ -27,6 +27,7 @@ def scrambleSearch(A, value):
     return determenisticSearch(A, value)
 
 
-A = [13, -3, -25, 20, -3, -16, -23, 18, 20, -7, 12, -5, -22, 15, -4, 7] 
+if __name__ == '__main__':
+    A = [13, -3, -25, 20, -3, -16, -23, 18, 20, -7, 12, -5, -22, 15, -4, 7] 
 
-print(scrambleSearch(A, -3))
+    print(scrambleSearch(A, -3))

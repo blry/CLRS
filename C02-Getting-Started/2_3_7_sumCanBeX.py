@@ -34,8 +34,36 @@ class MergeSorter:
                 self.D[i] = self.D[mid]
                 mid += 1
 
-A = [9, 8, 7, 6, 5, 4, 3, 2, 1, 0, 100, -100, 100, -100, -1000]
+def binSearch(A, x):
+    start, end = 0, len(A) - 1
 
-MergeSorter(A).sort()
+    while(start <= end):
+        mid = (start + end) // 2
 
-print(A)
+        if(A[mid] < x):
+            start = mid + 1
+        elif(A[mid] > x):
+            end = mid - 1
+        else:
+            return mid
+
+    return None
+
+def sumCanBe(S, x):
+    MergeSorter(S).sort()
+
+    for i in range(0, len(S) - 1):
+        t = S.pop(i)
+        if binSearch(S, x - t) is not None:
+            S.insert(i, t)
+            return True
+        S.insert(i, t)
+
+    return False
+
+
+if __name__ == '__main__':
+    S = [1, 2, 3, 6, 7, 8]
+
+    print(sumCanBe(S, 3)) #True
+    print(sumCanBe(S, 2)) #False

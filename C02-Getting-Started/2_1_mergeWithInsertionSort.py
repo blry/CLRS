@@ -49,6 +49,8 @@ class MergeWithInsertionSorter:
                 self.D[i] = self.D[mid]
                 mid += 1
 
-A = [9, 8, 7, 6, 5, 4, 3, 2, 1, 0, 100, -100, 100, -100, -1000]
 
-MergeWithInsertionSorter(A, 32).sort()
+if __name__ == '__main__':
+    A = [9, 8, 7, 6, 5, 4, 3, 2, 1, 0, 100, -100, 100, -100, -1000]
+
+    print(MergeWithInsertionSorter(A, 32).sort())
