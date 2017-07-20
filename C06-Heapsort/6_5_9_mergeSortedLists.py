@@ -1,6 +1,12 @@
 #!/usr/bin/env python
 # coding=utf-8
 
+'''
+Give an O(nlgk)-time algorithm to merge k sorted lists into one sorted list, 
+where n is the total number of elements in all the input lists. 
+(Hint: Use a min-heap for k-way merging).
+'''
+
 class Item():
     def __init__(self, val, key):
         self.val = val
@@ -35,11 +41,6 @@ def __minHeapify(heap, i):
             i = largest
         else:
             break
-
-
-def __buildMinHeap(heap):
-    for i in range(len(heap) // 2 - 1, -1, -1):
-        __minHeapify(heap, i)
 
 
 def minHeapMinimum(heap):
@@ -79,15 +80,28 @@ def minHeapInsert(heap, item):
 
 
 if __name__ == '__main__':
-    heap = [Item('test4', 4), Item('test1', 1), Item('test3', 3), Item('test16', 16)]
+    l1 = [Item('test1', 1), Item('test3', 3), Item('test16', 16), Item('test40', 40)]
+    l2 = [Item('test2', 2), Item('test10', 10), Item('test30', 30), Item('test40', 40), Item('test160', 160)]
 
-    heapSize = len(heap)
+    lists = [l1, l2]
+    heap = []
+    heapSize = 0;
 
-    __buildMinHeap(heap)
+    for i in range(0, len(lists)):
+        lists[i][0].listNo = i;
+        minHeapInsert(heap, lists[i][0])
+        del lists[i][0]
 
-    minHeapInsert(heap, Item('test0', 0))
-    minHeapInsert(heap, Item('test20', 20))
+    sortedList = []
 
-    for i in range(0, len(heap)):
-        print(minHeapExtractMinimum(heap).key, end = " ")
+    while heapSize > 0:
+        o = minHeapExtractMinimum(heap)
+        sortedList.append(o)
+        if lists[o.listNo]:
+            lists[o.listNo][0].listNo = o.listNo
+            minHeapInsert(heap, lists[o.listNo][0])
+            del lists[o.listNo][0]
 
+
+    for i in range(0, len(sortedList)):
+        print(sortedList[i].key, end = " ")

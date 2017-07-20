@@ -8,7 +8,7 @@ class Item():
         self.key = key
 
     def __eq__(self, other):
-        return self.key == other.year
+        return self.key == other.key
 
     def __lt__(self, other):
         return self.key < other.key
