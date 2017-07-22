@@ -77,14 +77,14 @@ if __name__ == '__main__':
     for i in range(11):
         try:
             A.enqueue(i)
+            A.dequeue()
+            A.enqueue(i)
         except Exception:
             print("Overflow catched")
             break
 
     for i in range(11):
         try:
-            print(A.dequeue(), end = " ")
-            A.enqueue(i)
             print(A.dequeue(), end = " ")
         except Exception:
             print()

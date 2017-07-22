@@ -90,7 +90,7 @@ if __name__ == '__main__':
 
     while True:
         try:
-            print(A.pop(), end = ", ")
+            print(A.pop(), end = " ")
         except Exception:
-            print("Stack underflow exception handled")
+            print("\nStack underflow exception handled")
             break
