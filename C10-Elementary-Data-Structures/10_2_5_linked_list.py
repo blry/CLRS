@@ -8,6 +8,7 @@ class Item():
         self.data = data
         self.nextItem = None
 
+
 class LinkedList():
     def __init__(self):
         self.head = self.tail = None
@@ -66,6 +67,7 @@ class LinkedList():
             raise Exception("Item not found")
 
         return item
+
 
     def info(self):
         if self.head:
