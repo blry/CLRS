@@ -30,7 +30,6 @@ class LinkedList():
                 self.head = self.tail = None
             else:
                 self.head = self.tail.nextItem = self.head.nextItem
-
             return
 
         prev = self.head
