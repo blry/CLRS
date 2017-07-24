@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 # coding=utf-8
 
+
 class Stack(list):
     def __init__(self, n):
         self.top = -1

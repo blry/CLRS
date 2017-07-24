@@ -3,7 +3,8 @@
 
 import random
 
-class Item:
+
+class Node:
     def __init__(self, key, value):
         self.key = key
         self.value = value
@@ -35,6 +36,6 @@ if __name__ == '__main__':
     huge_array = [random.randint(0, 10000) for _ in range(10007)]
     additional_array = []
 
-    insert(Item(10, 100))
-    insert(Item(20, 200))
+    insert(Node(10, 100))
+    insert(Node(20, 200))
     print(search(20).value)

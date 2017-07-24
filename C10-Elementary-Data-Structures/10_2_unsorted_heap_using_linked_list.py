@@ -3,15 +3,19 @@
 
 from random import randrange
 
+
 class Node():
     def __init__(self, key):
         self.key = key
 
+
     def __eq__(self, other):
         return self.key == other.key
 
+
     def __lt__(self, other):
         return self.key < other.key
+
 
     def __str__(self):
         return str(self.key)

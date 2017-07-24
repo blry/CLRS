@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 # coding=utf-8
 
+
 def insertionSort(A):
     for i in range(1, len(A)):
         k = A[i]

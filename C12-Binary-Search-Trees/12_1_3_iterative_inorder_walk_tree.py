@@ -18,7 +18,7 @@ class Stack():
 
     def pop(self):
         if self.head is None:
-            raise Exception("Stack underflow")
+            return None
 
         item = self.head
         self.head = item.nextItem
@@ -39,29 +39,35 @@ class BinaryTree():
 
     def info(self):
         stack = Stack()
-        stack.push(self.head)
-        
-        while stack.head:
-            node = stack.pop()
-                
-            print(node.data, end = " ")
-                
-            if node.leftChild:
-                stack.push(node.leftChild)
-            if node.rightChild:
-                stack.push(node.rightChild)
 
+        node = self.head
+        
+        while True: # 6
+            while node:
+                stack.push(node)
+                node = node.leftChild
+
+            if stack.head:
+                node = stack.pop()
+                print(node.data, end = " ")
+                node = node.rightChild
+            else:
+                break
 
 
 if __name__ == '__main__':
-    T = Node(1)
-    T.leftChild = Node(2)
-    T.rightChild = Node(3)
-    T.leftChild.leftChild = Node(4)
+    # level 1
+    T = Node(6)
+    
+    T.leftChild = Node(5)
+    T.leftChild.leftChild = Node(2)
     T.leftChild.rightChild = Node(5)
-    T.rightChild.leftChild = Node(6)
-    T.rightChild.rightChild = Node(7)
+
+    T.rightChild = Node(7)
+    T.rightChild.rightChild = Node(8)
+
 
     L = BinaryTree(T)
 
     L.info()
+    

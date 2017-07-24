@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 # coding=utf-8
 
+
 def binSearch(A, x):
     start, end = 0, len(A) - 1
 

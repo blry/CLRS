@@ -3,18 +3,22 @@
 
 import math
 
+
 class MergeWithInsertionSorter:
     def __init__(self, A, k):
         self.D = A
         self.B = [None] * len(A)
         self.k = k
 
+
     def getData(self):
         return self.D
+
 
     def sort(self):
         self.__sort(0, len(self.D) - 1)
         return self.D
+
 
     def __sort(self, low, high):
         if(low < high):
@@ -26,6 +30,7 @@ class MergeWithInsertionSorter:
                 self.__sort(mid + 1, high)
                 self.__merge(low, mid, high)
 
+
     def __insertionSort(self, A):
         for i in range(1, len(A)):
             k = A[i]
@@ -36,6 +41,7 @@ class MergeWithInsertionSorter:
             A[j + 1] = k
 
         return A
+
 
     def __merge(self, low, mid, high):
         self.B[low : mid + 1] = self.D[low : mid + 1]

@@ -3,6 +3,7 @@
 
 from random import randint, shuffle
 
+
 def randomSearch(A, value):
     P = []
     while True:
@@ -15,12 +16,14 @@ def randomSearch(A, value):
                 if len(P) == len(A):
                     return None
 
+
 def determenisticSearch(A, value):
     for i in range(0, len(A)):
         if A[i] == value:
             return i
 
     return None
+
 
 def scrambleSearch(A, value):
     shuffle(A)

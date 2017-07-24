@@ -7,6 +7,7 @@ class Item():
         self.key = key
         self.nextItem = None
 
+
 class Stack():
     def __init__(self):
         self.head = None

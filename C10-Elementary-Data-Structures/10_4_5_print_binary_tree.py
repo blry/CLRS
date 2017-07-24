@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 # coding=utf-8
 
+
 class Stack():
     def __init__(self):
         self.head = None
@@ -77,4 +78,3 @@ if __name__ == '__main__':
     L = BinaryTree(T)
 
     L.info()
-    

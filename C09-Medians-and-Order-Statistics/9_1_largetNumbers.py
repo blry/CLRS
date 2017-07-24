@@ -4,6 +4,7 @@
 from random import randrange, shuffle
 import time
 
+
 class Item():
     def __init__(self, val, key):
         self.val = val
@@ -12,8 +13,10 @@ class Item():
     def __eq__(self, other):
         return self.key == other.key
 
+
     def __lt__(self, other):
         return self.key < other.key
+
 
     def __str__(self):
         return str((self.val, self.key))
@@ -117,7 +120,6 @@ def randomizedSelectTop(A, begin, end, ist):
         return randomizedSelectTop(A, begin, pivot - 1, ist)
     else:
         return randomizedSelectTop(A, pivot + 1, end, ist - k)
-
 
 
 if __name__ == '__main__':

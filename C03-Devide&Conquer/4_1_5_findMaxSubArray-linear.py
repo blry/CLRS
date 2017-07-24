@@ -3,6 +3,7 @@
 # 1..j, отслеживая макс подмассив
 # потом для 1..j+1 -это либо 1..j, либо i..j+1
 
+
 def findMaxSubArray(A):
     right = left = 0
     maxSum = A[0]

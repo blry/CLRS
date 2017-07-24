@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 # coding=utf-8
 
+
 def insertionRecSort(A, n):
     if(n > 1):
         insertionRecSort(A, n - 1)

@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 # coding=utf-8
 
+
 def findMaxSubArrayLinear(A, low, high):
     maxSum = maxLow = maxHigh = 0
     for l in range(low, high + 1):
@@ -13,6 +14,7 @@ def findMaxSubArrayLinear(A, low, high):
                 maxHigh = r
 
     return maxSum, maxLow, maxHigh
+
 
 def findMaxSubArray(A, low, high):
     if (high - low) < 13:
@@ -30,6 +32,7 @@ def findMaxSubArray(A, low, high):
             return rightSum, rightLow, rightHigh
         else:
             return crossSum, crossLow, crossHigh
+
 
 def findMaxCrossMidSubArray(A, low, mid, high):
     maxLeftSum = current = A[mid]

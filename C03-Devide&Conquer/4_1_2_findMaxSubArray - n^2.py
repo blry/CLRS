@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 # coding=utf-8
 
+
 def findMaxSubArray(A):
     maxSum = low = high = 0
     for l in range(0, len(A)):

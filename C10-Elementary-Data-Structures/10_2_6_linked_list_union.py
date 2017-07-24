@@ -2,57 +2,57 @@
 # coding=utf-8
 
 
-class Item():
+class Node():
     def __init__(self, key = None, data = None):
         self.key = key
         self.data = data
-        self.nextItem = None
+        self.nextNode = None
+
 
 class LinkedList():
     def __init__(self):
         self.head = self.tail = None
 
 
-    def insert(self, item):
+    def insert(self, node):
         if self.head is None:
-            self.head = self.tail = item
-            item.nextItem = item
+            self.head = self.tail = node
+            node.nextNode = node
         else:
-            item.nextItem = self.head
-            self.head = item
-            self.tail.nextItem = self.head
+            node.nextNode = self.head
+            self.head = node
+            self.tail.nextNode = self.head
 
 
     def union(self, L):
-        self.tail.nextItem = L.head
-        L.tail.nextItem = self.head
+        self.tail.nextNode = L.head
+        L.tail.nextNode = self.head
 
 
     def info(self):
         if self.head:
             print(self.head.key, end = " ")
-            a = self.head.nextItem
+            a = self.head.nextNode
             while a is not self.head:
                 print(a.key, end = " ")
-                a = a.nextItem
+                a = a.nextNode
         else:
-            print("No Items")
+            print("No Nodes")
 
 
 if __name__ == '__main__':
     L = LinkedList()
 
-    L.insert(Item(10, 100))
-    L.insert(Item(20, 200))
-    L.insert(Item(30, 300))
+    L.insert(Node(10, 100))
+    L.insert(Node(20, 200))
+    L.insert(Node(30, 300))
 
     L2 = LinkedList()
 
-    L2.insert(Item(40, 400))
-    L2.insert(Item(50, 500))
-    L2.insert(Item(60, 600))
+    L2.insert(Node(40, 400))
+    L2.insert(Node(50, 500))
+    L2.insert(Node(60, 600))
 
     L.union(L2)
 
     L.info()
-    

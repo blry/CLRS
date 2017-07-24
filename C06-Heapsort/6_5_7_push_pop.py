@@ -7,11 +7,14 @@ class Item():
         self.val = val
         self.key = key
 
+
     def __eq__(self, other):
         return self.key == other.key
 
+
     def __lt__(self, other):
         return self.key < other.key
+
 
     def __str__(self):
         return str((self.val, self.key))
@@ -98,4 +101,3 @@ if __name__ == '__main__':
     print(pop(heap))
     print(pop(heap))
     print(pop(heap))
-

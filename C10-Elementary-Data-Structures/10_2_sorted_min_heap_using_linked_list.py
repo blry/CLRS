@@ -3,6 +3,7 @@
 
 from random import randrange
 
+
 class Node():
     def __init__(self, key):
         self.key = key

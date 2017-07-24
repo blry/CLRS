@@ -1,12 +1,14 @@
 #!/usr/bin/env python
 # coding=utf-8
 
+
 class Queue(list):
     def __init__(self, n):
         self.tail = 0
         self.head = None
         self.last = n - 1
         self.extend([None] * n)
+
 
     def enqueue(self, val):
         if self.head == self.tail:

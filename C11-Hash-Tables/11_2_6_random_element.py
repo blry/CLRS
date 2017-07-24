@@ -3,6 +3,7 @@
 
 from random import randrange
 
+
 class Node():
     def __init__(self, key = None, data = None):
         self.key = key
@@ -74,6 +75,7 @@ class LinkedList():
 
         return node
 
+
     def random(self):
         k = randrange(0, self.L)
 
@@ -82,7 +84,6 @@ class LinkedList():
             node = node.nextNode
 
         return node
-
 
 
 def insert(node):
@@ -99,6 +100,7 @@ def search(k):
     global array
     return array[h(k)].search(k)
 
+
 def random():
     global array
     
@@ -111,6 +113,7 @@ def random():
 
 def h(k):
     return k % 9
+
 
 if __name__ == '__main__':
     array = [LinkedList() for _ in range(10)]

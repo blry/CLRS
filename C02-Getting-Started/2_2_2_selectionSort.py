@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 # coding=utf-8
 
+
 def selectionSort(A):
     for i in range(0, len(A) - 2):
         m = i

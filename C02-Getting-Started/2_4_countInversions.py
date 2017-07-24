@@ -3,16 +3,20 @@
 
 import math
 
+
 class InversionsCounter:
     def __init__(self, A):
         self.D = A
         self.B = [None] * len(A)
 
+
     def getData(self):
         return self.D
 
+
     def count(self):
         return self.__sort(0, len(self.D) - 1)
+
 
     def __sort(self, low, high):
         if(low < high):
@@ -22,6 +26,7 @@ class InversionsCounter:
             inversions += self.__merge(low, mid, high)
             return inversions
         return 0
+
 
     def __merge(self, low, mid, high):
         self.B[low : mid + 1] = self.D[low : mid + 1]

@@ -2,11 +2,11 @@
 # coding=utf-8
 
 
-class Item():
+class Node():
     def __init__(self, key = None, data = None):
         self.key = key
         self.data = data
-        self.nextItem = None
+        self.nextNode = None
 
 
 class LinkedList():
@@ -14,53 +14,52 @@ class LinkedList():
         self.head = self.tail = None
 
 
-    def insert(self, item):
+    def insert(self, node):
         if self.head is None:
-            self.head = self.tail = item
-            item.nextItem = item
+            self.head = self.tail = node
+            node.nextNode = node
         else:
-            item.nextItem = self.head
-            self.head = item
-            self.tail.nextItem = self.head
+            node.nextNode = self.head
+            self.head = node
+            self.tail.nextNode = self.head
 
 
     def reverse(self):
-        prevItem = self.tail = self.head
-        buf = self.head.nextItem
+        prevNode = self.tail = self.head
+        buf = self.head.nextNode
         # 3 -> 2 -> 1 -> 3; p3; b2;
 
         while buf is not self.head:
-            nextItem = buf.nextItem
-            buf.nextItem = prevItem
-            prevItem = buf
-            buf = nextItem
+            nextNode = buf.nextNode
+            buf.nextNode = prevNode
+            prevNode = buf
+            buf = nextNode
             # n1; 2 -> 3; p2; b1;
             # n3; 1 -> 2; p1; b3;
 
-        self.head = self.tail.nextItem = prevItem
+        self.head = self.tail.nextNode = prevNode
 
 
     def info(self):
         if self.head:
             print(self.head.key, end = " ")
-            a = self.head.nextItem
+            a = self.head.nextNode
             while a is not self.head:
                 print(a.key, end = " ")
-                a = a.nextItem
+                a = a.nextNode
         else:
-            print("No Items")
+            print("No Nodes")
 
 
 if __name__ == '__main__':
     L = LinkedList()
 
-    L.insert(Item(10, 100))
-    L.insert(Item(20, 200))
-    L.insert(Item(30, 300))
+    L.insert(Node(10, 100))
+    L.insert(Node(20, 200))
+    L.insert(Node(30, 300))
 
     L.info()
     print()
     L.reverse()
 
     L.info()
-    

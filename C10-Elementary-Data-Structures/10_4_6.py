@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 # coding=utf-8
 
+
 class Stack():
     def __init__(self):
         self.head = None
@@ -67,9 +68,6 @@ class CustomTree():
                 children.append(node)
 
         return children
-
-
-
 
 
 if __name__ == '__main__':

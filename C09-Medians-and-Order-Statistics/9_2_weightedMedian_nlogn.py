@@ -10,11 +10,14 @@ class Item():
         self.val = val
         self.key = key
 
+
     def __eq__(self, other):
         return self.key == other.key
 
+
     def __lt__(self, other):
         return self.key < other.key
+
 
     def __str__(self):
         return str((self.val, self.key))
@@ -56,7 +59,6 @@ def heapSort(heap):
         heap[0], heap[i] = heap[i], heap[0]
         heapSize -= 1
         __maxHeapify(heap, 0)
-
 
 
 if __name__ == '__main__':

@@ -1,11 +1,13 @@
 #!/usr/bin/env python
 # coding=utf-8
 
+
 class dualStack(list):
     def __init__(self, n):
         self.top1 = -1
         self.top2 = self.n = n
         self.extend([None] * n)
+
 
     def push1(self, val):
         if (self.top1 + 1) == self.top2:
@@ -13,6 +15,7 @@ class dualStack(list):
 
         self.top1 += 1
         self[self.top1] = val
+
 
     def pop1(self):
         if self.top1 == -1:
@@ -36,6 +39,7 @@ class dualStack(list):
 
         self.top2 += 1
         return self[self.top2 - 1]
+
 
 if __name__ == '__main__':
     A = dualStack(10)

@@ -1,16 +1,20 @@
 #!/usr/bin/env python
 # coding=utf-8
 
+
 class Item():
     def __init__(self, val, key):
         self.val = val
         self.key = key
 
+
     def __eq__(self, other):
         return self.key == other.key
 
+
     def __lt__(self, other):
         return self.key < other.key
+
 
     def __str__(self):
         return str((self.val, self.key))
@@ -76,7 +80,6 @@ def maxHeapInsert(heap, item):
     heapSize += 1
     heap.append(item)
     maxHeapIncreaseKey(heap, len(heap) - 1, item.key)
-
 
 
 if __name__ == '__main__':

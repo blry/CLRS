@@ -1,16 +1,20 @@
 #!/usr/bin/env python
 # coding=utf-8
 
+
 class Item():
     def __init__(self, val, key):
         self.val = val
         self.key = key
 
+
     def __eq__(self, other):
         return self.key == other.key
 
+
     def __lt__(self, other):
         return self.key < other.key
+
 
     def __str__(self):
         return str((self.key))
@@ -53,6 +57,7 @@ def heapSort(heap, d):
         heapSize -= 1
         __maxHeapify(heap, 0, d)
 
+
 def maxHeapExtractMaximum(heap, d):
     global heapSize
  
@@ -64,6 +69,7 @@ def maxHeapExtractMaximum(heap, d):
 
     return m
 
+
 def maxHeapIncreaseKey(heap, d, index, newKey):
     if heap[index].key <= newKey:
         heap[index].key = newKey
@@ -74,6 +80,7 @@ def maxHeapIncreaseKey(heap, d, index, newKey):
                 index = parent
             else:
                 break
+
 
 if __name__ == '__main__':
     heap = [Item(4, 4), Item(1, 1), Item(3, 3), Item(2, 2), Item(16, 16), Item(9, 9), Item(10, 10), Item(14, 14)]

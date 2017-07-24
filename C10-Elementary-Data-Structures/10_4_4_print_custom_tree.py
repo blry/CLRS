@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 # coding=utf-8
 
+
 class Stack():
     def __init__(self):
         self.head = None
@@ -51,7 +52,6 @@ class CustomTree():
                 stack.push(node.rightSibling)
 
 
-
 if __name__ == '__main__':
     # level 1
     T = Node(1)
@@ -69,4 +69,3 @@ if __name__ == '__main__':
     L = CustomTree(T)
 
     L.info()
-    

@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 # coding=utf-8
 
+
 def findMaxSubArray(A, low, high):  # 30nlog20n;
     if low >= high:
         return A[high], low, high
@@ -17,6 +18,7 @@ def findMaxSubArray(A, low, high):  # 30nlog20n;
             return rightSum, rightLow, rightHigh
         else:
             return crossSum, crossLow, crossHigh
+
 
 def findMaxCrossMidSubArray(A, low, mid, high):
     maxLeftSum = current = A[mid]

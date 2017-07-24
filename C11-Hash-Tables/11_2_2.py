@@ -67,6 +67,7 @@ class LinkedList():
 
         return node
 
+
     def info(self):
         if self.head:
             print(self.head.key, end = " ")
@@ -95,6 +96,7 @@ def search(k):
 
 def h(k):
     return k % 9
+
 
 if __name__ == '__main__':
     array = [LinkedList() for _ in range(10)]
