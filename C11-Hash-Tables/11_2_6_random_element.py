@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 # coding=utf-8
 
+from random import randrange
 
 class Node():
     def __init__(self, key = None, data = None):
@@ -12,9 +13,11 @@ class Node():
 class LinkedList():
     def __init__(self):
         self.head = self.tail = None
+        self.L = 0
 
 
     def insert(self, node):
+        self.L += 1
         if self.head is None:
             self.head = self.tail = node
             node.nextNode = node
@@ -28,8 +31,10 @@ class LinkedList():
         if self.head is node:
             if self.tail is node:
                 self.head = self.tail = None
+                self.L = 0
             else:
                 self.head = self.tail.nextNode = self.head.nextNode
+                self.L -= 1
             return
 
         prev = self.head
@@ -37,7 +42,9 @@ class LinkedList():
         while prev.nextNode is not node:
             prev = prev.nextNode
             if prev is self.head:
-                raise Exception("Node not found")
+                return None
+
+        self.L -= 1
 
         prev.nextNode = node.nextNode
 
@@ -47,7 +54,7 @@ class LinkedList():
 
     def search(self, k):
         if not self.head:
-            raise Exception("List is empty")
+            return None
 
         buf = self.head.key
 
@@ -63,45 +70,59 @@ class LinkedList():
         self.head.key = buf
 
         if node is self.head:
-            raise Exception("Node not found")
+            return None
+
+        return node
+
+    def random(self):
+        k = randrange(0, self.L)
+
+        node = self.head
+        for i in range(k):
+            node = node.nextNode
 
         return node
 
 
-    def info(self):
-        if self.head:
-            print(self.head.key, end = " ")
-            a = self.head.nextNode
-            while a is not self.head:
-                print(a.key, end = " ")
-                a = a.nextNode
-        else:
-            print("No Nodes")
 
+def insert(node):
+    global array
+    array[h(node.key)].insert(node)
+
+
+def delete(node):
+    global array
+    array[h(node.key)].delete(node)
+
+
+def search(k):
+    global array
+    return array[h(k)].search(k)
+
+def random():
+    global array
+    
+    e = array[h(randrange(0, 10))]
+    while e.L == 0:
+        e = array[h(randrange(0, 10))]
+
+    return e.random()
+
+
+def h(k):
+    return k % 9
 
 if __name__ == '__main__':
-    L = LinkedList()
+    array = [LinkedList() for _ in range(10)]
 
-    L.insert(Node(10, 100))
-    L.insert(Node(20, 200))
-    L.insert(Node(30, 300))
+    insert(Node(5, 100))
+    insert(Node(28, 200))
+    insert(Node(19, 100))
+    insert(Node(15, 200))
+    insert(Node(20, 100))
+    insert(Node(33, 200))
+    insert(Node(12, 100))
+    insert(Node(17, 200))
+    insert(Node(10, 100))
 
-    L.info()
-    print()
-    a = L.search(20)
-    L.delete(a)
-    L.info()
-
-    try:
-        L.delete(a)
-    except Exception:
-        print("\nException handled")
-
-    try:
-        L.search(20)
-    except Exception:
-        print("Exception handled")
-
-    L.delete(L.search(10))
-    L.delete(L.search(30))
-    L.info()
+    print(random().key)

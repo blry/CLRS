@@ -37,7 +37,7 @@ class LinkedList():
         while prev.nextNode is not node:
             prev = prev.nextNode
             if prev is self.head:
-                raise Exception("Node not found")
+                return None
 
         prev.nextNode = node.nextNode
 
@@ -47,7 +47,7 @@ class LinkedList():
 
     def search(self, k):
         if not self.head:
-            raise Exception("List is empty")
+            return None
 
         buf = self.head.key
 
@@ -63,45 +63,53 @@ class LinkedList():
         self.head.key = buf
 
         if node is self.head:
-            raise Exception("Node not found")
+            return None
 
         return node
-
 
     def info(self):
         if self.head:
             print(self.head.key, end = " ")
-            a = self.head.nextNode
-            while a is not self.head:
-                print(a.key, end = " ")
-                a = a.nextNode
+            node = self.head.nextNode
+            while node is not self.head:
+                print(node.key, end = " ")
+                node = node.nextNode
         else:
-            print("No Nodes")
+            print("No Items", end = " ")
 
+
+def insert(node):
+    global array
+    array[h(node.key)].insert(node)
+
+
+def delete(node):
+    global array
+    array[h(node.key)].delete(node)
+
+
+def search(k):
+    global array
+    return array[h(k)].search(k)
+
+
+def h(k):
+    return k % 9
 
 if __name__ == '__main__':
-    L = LinkedList()
+    array = [LinkedList() for _ in range(10)]
 
-    L.insert(Node(10, 100))
-    L.insert(Node(20, 200))
-    L.insert(Node(30, 300))
+    insert(Node(5, 100))
+    insert(Node(28, 200))
+    insert(Node(19, 100))
+    insert(Node(15, 200))
+    insert(Node(20, 100))
+    insert(Node(33, 200))
+    insert(Node(12, 100))
+    insert(Node(17, 200))
+    insert(Node(10, 100))
 
-    L.info()
-    print()
-    a = L.search(20)
-    L.delete(a)
-    L.info()
-
-    try:
-        L.delete(a)
-    except Exception:
-        print("\nException handled")
-
-    try:
-        L.search(20)
-    except Exception:
-        print("Exception handled")
-
-    L.delete(L.search(10))
-    L.delete(L.search(30))
-    L.info()
+    for i in range(10):
+        print(i, end = ": ")
+        array[i].info()
+        print()
