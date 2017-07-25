@@ -3,12 +3,12 @@
 
 
 def fibonacci(n):
-    k = [1] * (n + 1)
+    k = [1, 1]
 
     for i in range(3, n + 1):
-        k[i] = k[i - 1] + k[i - 2]
+        k = [k[1], k[0] + k[1]]
 
-    return k[n]
+    return k[1]
 
 
 if __name__ == '__main__':
