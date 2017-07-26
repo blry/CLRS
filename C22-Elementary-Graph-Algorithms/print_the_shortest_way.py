@@ -53,6 +53,16 @@ def BFS(Adj, U): # в ширину
                 queue.enqueue(V)
 
 
+def DFS(Adj, U):
+    U.visited = True
+
+    print(U, end = " ")
+
+    for V in Adj[U]:
+        if V.visited == False:
+            DFS(Adj, V)
+
+
 def printPath(Adj, U, V):
     if U == V:
         print(U, end = " ")
@@ -88,7 +98,9 @@ if __name__ == '__main__':
 
     BFS(Adj, a)
     print()
-    printPath(Adj, a, k)
+    
+    #print()
+    #printPath(Adj, a, k)
 
 
 
